@@ -17,12 +17,17 @@ Necessary Components
 Models
 
 Strings
+
 Each string will be labeled with a note (E, A, B, etc)
 Certain strings will have the option to change it's tuning
 A way to indicate that a string has been selected by the user
 If a string is selected in more than one spot, the oldest one will be automaticall de-selected.
+
 Frets
+
 Frets will be labelled 1 – 12
 Which fret a string is selected at will change the chords
+
 Audio
+
 Using HTML5 Audio, the web page will be able to play sound of the chords being made
