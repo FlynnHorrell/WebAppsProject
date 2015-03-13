@@ -15,7 +15,7 @@ require.config({
    waitSeconds: 15
 });
 
-/* All other modules should be called through here
+// All other modules should be called through here
 require(["jquery", "structures/mixin", "structures"],
 function($, mixin, structures) {
    // mixin
@@ -25,4 +25,4 @@ function($, mixin, structures) {
    console.log("mixin:", mixin);
    console.log("structures:", structures);
    console.log("Other things here");
-});*/
+});
