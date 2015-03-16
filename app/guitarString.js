@@ -1,4 +1,4 @@
-var proto;
+var GuitarString, proto;
 
 function makeNewString(note,octave){
 	var gString;
@@ -6,7 +6,7 @@ function makeNewString(note,octave){
 	// change these to object.defineProperty
 	gString.openNote = note;
 	gString.openOctave = octave;
-	//Keeps track which fret is selected, null is for unused 
+	//Keeps track which fret is selected, null is for unused, 0 is open string
 	gString.fret = 0;
 	// Call a proto function to set up frets for the array
 	gString.currNote = note;
@@ -20,16 +20,32 @@ proto = {
 		//if already clicked then unselect it
 	},
 	isClicked: function isClicked(){
-		return this.fret;
+		return this.fret !== null;
 	},
 	getCurrentNote: function getCurrentNote (){
+		/* returns the current note value of a string
+		   if not clicked, returns the open note */
 		return this.currNote;
 	},
 	getOctave: function getOctave(){
+		// returns the octave of the string object
 		return this.openOctave
 	},
+	getFret: function getFret(){
+		return this.fret;
+		/* returns an int from 1-12 depending on which 'fret'
+           the string has been clicked at */
 
-}
+	}
+
+};
+
+Object.defineProperty(GuitarString, "protoype", {
+	value: proto,
+	writeable: false
+});
+
+module.exports = GuitarString;
 
 
 
