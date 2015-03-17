@@ -1,4 +1,4 @@
- define(function(){
+//define(function(){ 
 var GuitarString, proto;
 
 function makeNewString(note, octave){
@@ -48,6 +48,6 @@ Object.defineProperty(GuitarString, "protoype", {
 	value: proto,
 	writeable: false
 });
-return GuitarString
-});
- // module.exports = GuitarString;
+// return GuitarString
+// });
+ module.exports = GuitarString;

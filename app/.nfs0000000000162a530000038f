@@ -16,7 +16,7 @@ require.config({
 });
 
 // All other modules should be called through here
-require(["jquery", "guitarString"],
+require(["jquery", "GuitarString"],
 function($, guitarString) {
    $(function() {
       console.log("Page loaded!");

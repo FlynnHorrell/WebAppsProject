@@ -21,7 +21,7 @@ function($, guitarString) {
    $(function() {
       console.log("Page loaded!");
    });
-   console.log("guitarString", guitarString.new());
+  // console.log("guitarString", guitarString.new());
    //console.log("mixin:", mixin);
    //console.log("structures:", structures);
 });
