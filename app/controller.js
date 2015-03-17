@@ -12,13 +12,13 @@
  var makeController = function(element, gString){
  	"use strict";
  	// el is a jquery object wrapping element
- 	var el = $(element);
+ 	var el = $(element), strings;
  	// strings is an array of guitar strings
  	strings = [];
  	// adds all the buttons
  	addButtons();
  	bindEvents();
- }
+ 
 
  function addButtons(){
  	// makes the necessary buttons that users can click on to make chords
@@ -44,6 +44,7 @@
  return {
  	el: element
  };
+}
 
  // jQuery with function. This function runs when the page has finished
 // loading. It gets everything started
