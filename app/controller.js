@@ -9,10 +9,22 @@
  * "element" needs to be a DOM or jQuery "ul" element.
  */
 
- var makeController = function(element){
+ var makeController = function(element, gString){
  	"use strict";
  	// el is a jquery object wrapping element
  	var el = $(element);
+ 	// strings is an array of guitar strings
+ 	strings = [];
+ 	// adds all the buttons
+ 	addButtons();
+ 	bindEvents();
+ }
+
+ function addButtons(){
+ 	// makes the necessary buttons that users can click on to make chords
+ 	  $("<input type='button' />").bind("click", function() {
+          selectString();
+      }).appendTo(el);
  }
 
  function selectString(ev){
