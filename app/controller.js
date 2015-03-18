@@ -8,8 +8,9 @@
  * Used to create a new "controller".
  * "element" needs to be a DOM or jQuery "ul" element.
  */
-
- var makeController = function(element, gString){
+define(function(){
+ var theController;
+ theController = newClass(function init(element, gString){
  	"use strict";
  	// el is a jquery object wrapping element
  	var el = $(element), strings;
@@ -18,7 +19,7 @@
  	// adds all the buttons
  	addButtons();
  	bindEvents();
- 
+ )}
 
  function addButtons(){
  	// makes the necessary buttons that users can click on to make chords
@@ -41,18 +42,18 @@
  	el.on("dblclick", unselectString);
  }
 
- return {
- 	el: element
- };
-}
-
+ /*return {
+ 	el: element,
+ 	strings: strings
+ };*/
+return theController;
+});
  // jQuery with function. This function runs when the page has finished
 // loading. It gets everything started
 //
 // Normally this would have been on a different file.
-$(function() {
+/*$(function() {
    "use strict";
-
    // Create the specific controller object initialized to work with our page
    makeController($("#main ul"));
-});
+})*/

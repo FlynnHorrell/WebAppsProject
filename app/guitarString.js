@@ -48,6 +48,6 @@ Object.defineProperty(GuitarString, "protoype", {
 	value: proto,
 	writeable: false
 });
-return GuitarString
+return GuitarString;
 });
  // module.exports = GuitarString;
