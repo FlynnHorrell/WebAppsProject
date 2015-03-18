@@ -28,7 +28,9 @@ function($, guitarString, controller) {
    $(function() {
    "use strict";
    // Create the specific controller object initialized to work with our page
-   controller.new($("#main ul"),string1);
+   var cont1 = controller.new($("#main ul"),string1);
+   console.log(cont1);
+   console.log(cont1.el);
    });
 });
   
