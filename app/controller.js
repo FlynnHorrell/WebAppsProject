@@ -20,16 +20,23 @@ define(function(){
  	// strings is an array of guitar strings
  	// strings = [];
  	// adds all the buttons
- 	cont.addButtons();
+ 	for (var i = 0; i <cont.strings.length;i+=1){
+ 	cont.addButtons(cont.strings[i]);
+ 	}
  	cont.bindEvents();
  	return cont;
  };
  proto = {
- addButtons:function addButtons(){
+ addButtons:function addButtons(gString){
  	// makes the necessary buttons that users can click on to make chords
+ 	console.log("addButtons Called");
+ 	for(var i = 0; i < 12; i += 1){
  	  $("<input type='button' />").bind("click", function() {
           selectString();
       }).appendTo(this.el);
+    }
+    $("<br>").appendTo(this.el);
+    
  },
  selectString: function selectString(ev){
 	/* trigegers when the user clicks on a string on the page

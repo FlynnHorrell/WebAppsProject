@@ -24,11 +24,16 @@ function($, guitarString, controller) {
    console.log("guitarString", guitarString);
    console.log("controller", controller);
    var string1 = guitarString.new("E",0);
+   var string2 = guitarString.new("A",0);
+   var string3 = guitarString.new("D",0);
+   var string4 = guitarString.new("G",0);
+   var string5 = guitarString.new("B",0);
+   var string6 = guitarString.new("E",0);
    console.log(string1);
    $(function() {
    "use strict";
    // Create the specific controller object initialized to work with our page
-   var cont1 = controller.new($("#main ul"),string1);
+   var cont1 = controller.new($("ul"),[string1, string2, string3, string4, string5, string6]);
    console.log(cont1);
    console.log(cont1.el);
    });
