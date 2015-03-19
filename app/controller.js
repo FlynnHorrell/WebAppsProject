@@ -30,9 +30,10 @@ define(function(){
  addButtons:function addButtons(gString){
  	// makes the necessary buttons that users can click on to make chords
  	console.log("addButtons Called");
- 	for(var i = 0; i < 12; i += 1){
+  var that = this;
+ 	for(var i = 0; i < 13; i += 1){
  	  $("<input type='button' />").bind("click", function() {
-          selectString();
+          that.selectString();
       }).appendTo(this.el);
     }
     $("<br>").appendTo(this.el);
@@ -41,6 +42,9 @@ define(function(){
  selectString: function selectString(ev){
 	/* trigegers when the user clicks on a string on the page
 	   changes the values of fret, currNote, and openOctave */
+     console.log("selectString called");
+
+
  },
  unselectString: function unselectString(ev){
 	// triggers if the user dblclicks on a string. It will set everything to their base values

@@ -28,7 +28,7 @@ function($, guitarString, controller) {
    var string3 = guitarString.new("D",0);
    var string4 = guitarString.new("G",0);
    var string5 = guitarString.new("B",0);
-   var string6 = guitarString.new("E",0);
+   var string6 = guitarString.new("E",1);
    console.log(string1);
    $(function() {
    "use strict";
