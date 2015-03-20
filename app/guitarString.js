@@ -43,9 +43,14 @@ proto = {
 		return fret;
 	},
 	calculateNote: function calculateNote(){
-
-
+		this.currNote(lookupNum((lookupNote(this.openNote) + this.fret)%12));
 		return this.currNote;
+	},
+	lookupNote: function lookupNote(note){
+		
+	},
+	lookupNum: function lookupNum(num){
+
 	}
 };
 
