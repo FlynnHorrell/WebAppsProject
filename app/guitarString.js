@@ -36,18 +36,17 @@ proto = {
 		return this.fret;
 		/* returns an int from 1-12 depending on which 'fret'
            the string has been clicked at */
-	}
+	},
 	setFret: function setFret(fret){
 		this.fret = fret;
 		this.calculateNote();
 		return fret;
-	}
+	},
 	calculateNote: function calculateNote(){
-		
+
 
 		return this.currNote;
 	}
-
 };
 
 GuitarString = {
