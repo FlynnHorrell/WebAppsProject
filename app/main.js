@@ -23,12 +23,12 @@ function($, guitarString, controller) {
    });
    console.log("guitarString", guitarString);
    console.log("controller", controller);
-   var string1 = guitarString.new("E",0);
-   var string2 = guitarString.new("A",0);
-   var string3 = guitarString.new("D",0);
-   var string4 = guitarString.new("G",0);
-   var string5 = guitarString.new("B",0);
-   var string6 = guitarString.new("E",1);
+   var string1 = guitarString.new("E",6);
+   var string2 = guitarString.new("B",5);
+   var string3 = guitarString.new("G",5);
+   var string4 = guitarString.new("D",5);
+   var string5 = guitarString.new("A",4);
+   var string6 = guitarString.new("E",4);
    console.log(string1);
    $(function() {
    "use strict";
