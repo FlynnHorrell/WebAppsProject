@@ -32,7 +32,7 @@ define(function(){
  	console.log("addButtons Called");
   var that = this;
  	for(var i = 0; i < 13; i += 1){
- 	  $("<input type='button' />").bind("click", function() {
+ 	  $("<input type='button' />").addClass("fret"+i).addClass("guitarString" + gString.openNote).bind("click", function() {
           that.selectString(this);
       }).appendTo(this.el);
     }
