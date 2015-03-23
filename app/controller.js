@@ -28,13 +28,12 @@ define(function(){
     return cont;
  }
  proto = {
- addButtons: function addButtons(gString, numString){
-    // makes the necessary buttons that users can click on to make chords
-    console.log("addButtons Called");
-    var that = this;
-    var i;
-    for (i = 0; i < 13; i += 1){
- 	  $("<input type='button' />").bind("click", function() {
+ addButtons:function addButtons(gString,numString){
+ 	// makes the necessary buttons that users can click on to make chords
+ 	console.log("addButtons Called");
+  var that = this;
+ 	for(var i = 0; i < 13; i += 1){
+ 	  $("<input type='button' />").addClass("fret"+i).addClass("guitarString" + gString.openNote).bind("click", function() {
           that.selectString(this);
       }).appendTo(this.el);
     }
