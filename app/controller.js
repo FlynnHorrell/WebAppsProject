@@ -22,18 +22,19 @@ define(function(){
     // strings = [];
     // adds all the buttons
     for (i = 0; i < cont.strings.length;i += 1){
-    cont.addButtons(cont.strings[ i ], i);
+        cont.addButtons(cont.strings[ i ], i);
     }
     cont.bindEvents();
     return cont;
  }
  proto = {
+
  addButtons:function addButtons(gString,numString){
  	// makes the necessary buttons that users can click on to make chords
  	console.log("addButtons Called");
-  var that = this;
+    var that = this;
  	for(var i = 0; i < 13; i += 1){
- 	  $("<input type='button' />").addClass("fret"+i).addClass("guitarString" + gString.openNote).bind("click", function() {
+ 	  $("<input type='button' value= "\fret\"/>").addClass("fret"+i).addClass("guitarString" + gString.openNote).bind("click", function() {
           that.selectString(this);
       }).appendTo(this.el);
     }
@@ -46,12 +47,11 @@ define(function(){
      console.log(ev);
      console.log($(ev));
      console.log($(ev.target));
-     if ($(ev.target).hasClass("isClicked")){
-        // fret = 0
-        // currNote = openNote
-     }else {
-        // do something else
-     }
+    
+     // display some indicator of where the string was selected
+     // delete any old indicators
+     this.el.setFret(button.value);
+
  },
  unselectString: function unselectString(ev){
 	// triggers if the user dblclicks on a string. It will set everything to their base values
