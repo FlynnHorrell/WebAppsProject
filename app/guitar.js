@@ -15,7 +15,7 @@ proto = {
 	allNotes: function allNotes(){
 		var notes = [];
 		for(var i = 0;i<this.strings.length;i+=1){
-			notes[i] = this.strings[i].currNote;
+			notes[i] = this.strings[i].getOpenNote();
 		}
 		return notes;
 	},

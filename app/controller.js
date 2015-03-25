@@ -35,7 +35,7 @@ define(function(){
  	console.log("addButtons Called");
     var that = this;
     var i = 0;
- 	for(i; i < 13; i += 1){
+ 	for(i; i < 25; i += 1){
  	  $("<input type='button' value = '" + i +  "'  />").addClass("fret"+i).addClass("guitarString" + numString).bind("click", function(i) {
           that.selectString(this);
       }).appendTo(this.el);
@@ -48,12 +48,15 @@ define(function(){
      console.log("selectString called");
      console.log(ev);
      console.log($(ev).attr("class"));
-
-
-
-     // testing
-     this.guitar.strings[0].setFret(ev.value);
-     console.log(this.guitar.strings[0].getCurrentNote());
+     var theFret = $(ev).attr("class").match(/\d+/)[0];
+     var theString = $(ev).attr("class").replace(/\d+/, "").match(/\d+/)[0];
+     /*
+     console.log(theFret);
+     console.log(theString);
+     */
+     console.log(this.guitar.allNotes());
+     this.guitar.strings[theString].setFret(theFret);
+     console.log(this.guitar.strings[theString].getCurrentNote());
     
      // display some indicator of where the string was selected
      // delete any old indicators
