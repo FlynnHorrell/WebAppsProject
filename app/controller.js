@@ -10,19 +10,20 @@
  */
 define(function(){
  var theController, proto;
- function makeNewController(element, gString){
+ function makeNewController(element, guitar){
     "use strict";
     var cont = Object.create(proto);
     var i;
     cont.el = $(element);
-    cont.strings = gString;
+    cont.guitar = guitar
+    //cont.strings = gString;
     // el is a jquery object wrapping element
     // var el = $(element), strings;
     // strings is an array of guitar strings
     // strings = [];
     // adds all the buttons
-    for (i = 0; i < cont.strings.length;i += 1){
-        cont.addButtons(cont.strings[ i ], i);
+    for (i = 0; i < cont.guitar.strings.length;i += 1){
+        cont.addButtons(cont.guitar.strings[ i ], i);
     }
     cont.bindEvents();
     return cont;
@@ -33,8 +34,9 @@ define(function(){
  	// makes the necessary buttons that users can click on to make chords
  	console.log("addButtons Called");
     var that = this;
- 	for(var i = 0; i < 13; i += 1){
- 	  $("<input type='button' value= "\fret\"/>").addClass("fret"+i).addClass("guitarString" + gString.openNote).bind("click", function() {
+    var i = 0;
+ 	for(i; i < 13; i += 1){
+ 	  $("<input type='button' value = '" + i +  "'  />").addClass("fret"+i).addClass("guitarString" + numString).bind("click", function(i) {
           that.selectString(this);
       }).appendTo(this.el);
     }
@@ -45,12 +47,12 @@ define(function(){
 	   changes the values of fret, currNote, and openOctave */
      console.log("selectString called");
      console.log(ev);
-     console.log($(ev));
-     console.log($(ev.target));
+     console.log($(ev).attr("class"));
+     console.log(i);
     
      // display some indicator of where the string was selected
      // delete any old indicators
-     this.el.setFret(button.value);
+     // this.el.setFret(button.value);
 
  },
  unselectString: function unselectString(ev){

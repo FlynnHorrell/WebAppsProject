@@ -16,13 +16,14 @@ require.config({
 });
 
 // All other modules should be called through here
-require(["jquery", "guitarString","controller"],
-function($, guitarString, controller) {
+require(["jquery", "guitarString","controller","guitar"],
+function($, guitarString, controller,guitar) {
    $(function() {
       console.log("Page loaded!");
    });
    console.log("guitarString", guitarString);
    console.log("controller", controller);
+   console.log("guitar", guitar);
    var string1 = guitarString.new("E",6);
    var string2 = guitarString.new("B",5);
    var string3 = guitarString.new("G",5);
@@ -33,7 +34,8 @@ function($, guitarString, controller) {
    $(function() {
    "use strict";
    // Create the specific controller object initialized to work with our page
-   var cont1 = controller.new($("ul"),[string1, string2, string3, string4, string5, string6]);
+   var guitar1 = guitar.new([string1,string2,string3,string4,string5,string6],true);
+   var cont1 = controller.new($("ul"),guitar1);
    console.log(cont1);
    console.log(cont1.el);
    });
