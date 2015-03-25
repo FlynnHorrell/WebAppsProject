@@ -20,6 +20,9 @@ function makeNewString(note, octave, useSharps){
 }
 
 proto = {
+	getOpenNote: function getOpenNote(){
+		return this.openNote;
+	},
 	getCurrentNote: function getCurrentNote(){
 		/* returns the current note value of a string
 		   if not clicked, returns the open note */
