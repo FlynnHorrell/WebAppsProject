@@ -12,13 +12,16 @@ var guitar, proto;
 	}
 
 proto = {
-	calculateChord: function calculateChord(){
+	allNotes: function allNotes(){
 		var notes = [];
 		for(var i = 0;i<this.strings.length;i+=1){
 			notes[i] = this.strings[i].currNote;
 		}
 		return notes;
-	},	
+	},
+	calculateChord: function calculateChord(){
+		
+	}
 };	
 
 guitar = {

@@ -48,7 +48,10 @@ define(function(){
      console.log("selectString called");
      console.log(ev);
      console.log($(ev).attr("class"));
-     console.log(i);
+
+     // testing
+     this.guitar.strings[0].setFret(ev.value);
+     console.log(this.guitar.strings[0].currNote);
     
      // display some indicator of where the string was selected
      // delete any old indicators
