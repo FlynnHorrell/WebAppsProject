@@ -48,7 +48,8 @@ define(function(){
      console.log("selectString called");
      /*console.log(ev);
      console.log($(ev).attr("class"));*/
-     var theFret = parse$(ev).attr("class").match(/\d+/)[0];
+     var theFret = $(ev).attr("class").match(/\d+/)[0];
+     theFret = parseInt(theFret);
      var theString = $(ev).attr("class").replace(/\d+/, "").match(/\d+/)[0];
      console.log("Fret", theFret);
      console.log("StringNumber", theString);    
