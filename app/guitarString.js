@@ -39,11 +39,17 @@ proto = {
 	},
 	setFret: function setFret(fret){
 		this.fret = fret;
+		console.log("Inside setFret: Fret = ", this.fret);
 		this.calculateNote();
 		return fret;
 	},
 	calculateNote: function calculateNote(){
+		console.log("Inside calculateNote openNote = ", this.openNote);
+		console.log(this.lookupNote(this.openNote));
+		console.log("Inside calculateNote this.fret = ", this.fret);
+		console.log("Inside calculateNote this.lookupNote(this.openNote)+this.fret = ", this.lookupNote(this.openNote)+this.fret);
 		var tempNote = (this.lookupNote(this.openNote)+this.fret)%12;
+		console.log("Inside calculateNote tempNote = ", tempNote);
 		if (tempNote == 0){
 			tempNote = 12;
 		}

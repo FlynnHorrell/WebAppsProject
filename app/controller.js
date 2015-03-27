@@ -35,7 +35,7 @@ define(function(){
  	console.log("addButtons Called");
     var that = this;
     var i = 0;
- 	for(i; i < 25; i += 1){
+ 	for(i; i < 13; i += 1){
  	  $("<input type='button' value = '" + i +  "'  />").addClass("fret"+i).addClass("guitarString" + numString).bind("click", function(i) {
           that.selectString(this);
       }).appendTo(this.el);
@@ -46,17 +46,17 @@ define(function(){
 	/* triggers when the user clicks on a string on the page
 	   changes the values of fret, currNote, and openOctave */
      console.log("selectString called");
-     console.log(ev);
-     console.log($(ev).attr("class"));
-     var theFret = $(ev).attr("class").match(/\d+/)[0];
+     /*console.log(ev);
+     console.log($(ev).attr("class"));*/
+     var theFret = parse$(ev).attr("class").match(/\d+/)[0];
      var theString = $(ev).attr("class").replace(/\d+/, "").match(/\d+/)[0];
-     /*
-     console.log(theFret);
-     console.log(theString);
-     */
+     console.log("Fret", theFret);
+     console.log("StringNumber", theString);    
      console.log(this.guitar.allNotes());
      this.guitar.strings[theString].setFret(theFret);
-     console.log(this.guitar.strings[theString].getCurrentNote());
+     console.log("Open Note", this.guitar.strings[theString].getOpenNote());
+     console.log("Current Note", this.guitar.strings[theString].getCurrentNote());
+     console.log("octave", this.guitar.strings[theString].getOctave())
     
      // display some indicator of where the string was selected
      // delete any old indicators
