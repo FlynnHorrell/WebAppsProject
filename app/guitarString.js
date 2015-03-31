@@ -5,7 +5,7 @@ function makeNewString(note, octave, useSharps){
 	var gString;
 	gString = Object.create(proto);
 	// change these to object.defineProperty
-	// note is a string representing the note like "A" 
+	// note is a string representing the note like "A"
 	// S is used for sharps so "AS" = A#
 	// b is used for flats so "Ab" = A flat
 	gString.openNote = note;
@@ -14,7 +14,7 @@ function makeNewString(note, octave, useSharps){
 	gString.fret = 0;
 	// Call a proto function to set up frets for the array
 	gString.currNote = note;
-	//useSharps is a boolean to determine whether to display sharps or flats
+	// useSharps is a boolean to determine whether to display sharps or flats
 	gString.useSharps = useSharps;
 	return gString;
 }
@@ -47,13 +47,13 @@ proto = {
 		console.log("Inside calculateNote openNote = ", this.openNote);
 		console.log(this.lookupNote(this.openNote));
 		console.log("Inside calculateNote this.fret = ", this.fret);
-		console.log("Inside calculateNote this.lookupNote(this.openNote)+this.fret = ", this.lookupNote(this.openNote)+this.fret);
-		var tempNote = (this.lookupNote(this.openNote)+this.fret)%12;
+		// console.log("Inside calculateNote this.lookupNote(this.openNote)+this.fret = ", this.lookupNote(this.openNote) + this.fret);
+		var tempNote = (this.lookupNote(this.openNote) + this.fret) % 12;
 		console.log("Inside calculateNote tempNote = ", tempNote);
-		if (tempNote == 0){
+		if (tempNote === 0){
 			tempNote = 12;
 		}
-		if (this.fret == -1){
+		if (this.fret === -1){
 			// if the fret is -1, the string is not being used
 			this.currNote = null;
 		}else {
@@ -64,60 +64,59 @@ proto = {
 	},
 	lookupNote: function lookupNote(note){
 		var noteToNum = {
-		A:1,
-		AS:2,
-		Bb:2,
-		B:3,
-		C:4,
-		CS:5,
-		Db:5,
-		D:6,
-		DS:7,
-		Eb:7,
-		E:8,
-		F:9,
-		FS:10,
-		Gb:10,
-		G:11,
-		GS:12,
-		Ab:12,
+		A: 1,
+		AS: 2,
+		Bb: 2,
+		B: 3,
+		C: 4,
+		CS: 5,
+		Db: 5,
+		D: 6,
+		DS: 7,
+		Eb: 7,
+		E: 8,
+		F: 9,
+		FS: 10,
+		Gb: 10,
+		G: 11,
+		GS: 12,
+		Ab: 12
 	    };
-		return noteToNum[note];
+		return noteToNum[ note ];
 	},
 	lookupNum: function lookupNum(num){
 		var numToNoteSharp = {
-		1:"A",
+		1: "A",
 		2: "AS",
-		3:"B",
-		4:"C",
-		5:"CS",
-		6:"D",
-		7:"DS",
-		8:"E",
-		9:"F",
-		10:"FS",
-		11:"G",
-		12:"GS",
+		3: "B",
+		4: "C",
+		5: "CS",
+		6: "D",
+		7: "DS",
+		8: "E",
+		9: "F",
+		10: "FS",
+		11: "G",
+		12: "GS"
 		};
 		var numToNoteFlat = {
-		1:"A",
-		2:"Bb",
-		3:"B",
-		4:"C",
-		5:"Db",
-		6:"D",
-		7:"Eb",
-		8:"E",
-		9:"F",
-		10:"Gb",
-		11:"G",
-		12:"Ab",
+		1: "A",
+		2: "Bb",
+		3: "B",
+		4: "C",
+		5: "Db",
+		6: "D",
+		7: "Eb",
+		8: "E",
+		9: "F",
+		10: "Gb",
+		11: "G",
+		12: "Ab"
 		};
-		if(this.useSharps){
-			return numToNoteSharp[num];
-		}else{
-		return numToNoteFlat[num];
+		if (this.useSharps){
+			return numToNoteSharp[ num ];
 		}
+		return numToNoteFlat[ num ];
 	}
 };
 

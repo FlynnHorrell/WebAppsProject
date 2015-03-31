@@ -13,16 +13,15 @@ var guitar, proto;
 
 proto = {
 	allNotes: function allNotes(){
-		var notes = [];
-		for(var i = 0;i<this.strings.length;i+=1){
-			notes[i] = this.strings[i].getOpenNote();
+		var i, notes = [ ];
+		for (i = 0; i < this.strings.length; i += 1){
+			notes[ i ] = this.strings[ i ].getOpenNote();
 		}
 		return notes;
 	},
 	calculateChord: function calculateChord(){
-		
 	}
-};	
+};
 
 guitar = {
 	new: makeNewGuitar

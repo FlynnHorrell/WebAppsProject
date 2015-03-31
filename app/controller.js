@@ -12,11 +12,10 @@ define(function(){
  var theController, proto;
  function makeNewController(element, guitar){
     "use strict";
-    var cont = Object.create(proto);
-    var i;
+    var i, cont = Object.create(proto);
     cont.el = $(element);
-    cont.guitar = guitar
-    //cont.strings = gString;
+    cont.guitar = guitar;
+    // cont.strings = gString;
     // el is a jquery object wrapping element
     // var el = $(element), strings;
     // strings is an array of guitar strings
@@ -30,15 +29,15 @@ define(function(){
  }
  proto = {
 
- addButtons:function addButtons(gString,numString){
- 	// makes the necessary buttons that users can click on to make chords
- 	console.log("addButtons Called");
+ addButtons: function addButtons(gString, numString){
+     // makes the necessary buttons that users can click on to make chords
+    console.log("addButtons Called");
     var that = this;
     var i = -1;
- 	for(i; i < 13; i += 1){
- 	  $("<input type='button' value = '" + i +  "'/>").data('fret', i).data('guitarString', numString).bind("click", function(i) {
-          that.selectString(this);
-      }).appendTo(this.el);
+    for (i; i < 13; i += 1){
+        $("<input type='button' value = '" + i + "'/>").data("fret", i).data("guitarString", numString).bind("click", function(i) {
+            that.selectString(this);
+        }).appendTo(this.el);
     }
     $("<br>").appendTo(this.el);
  },
@@ -50,20 +49,18 @@ define(function(){
      console.log($(ev).attr("class"));*/
 /*     var theFret = $(ev).attr("class").match(/\d+/)[0];
      theFret = parseInt(theFret);*/
-     var theFret = $(ev).data('fret');
-     var theString = $(ev).data('guitarString');
+     var theFret = $(ev).data("fret");
+     var theString = $(ev).data("guitarString");
      console.log("Fret", theFret);
-     console.log("StringNumber", theString);    
+     console.log("StringNumber", theString);
      console.log(this.guitar.allNotes());
-     this.guitar.strings[theString].setFret(theFret);
-     console.log("Open Note", this.guitar.strings[theString].getOpenNote());
-     console.log("Current Note", this.guitar.strings[theString].getCurrentNote());
-     console.log("octave", this.guitar.strings[theString].getOctave())
-    
+     this.guitar.strings[ theString ].setFret(theFret);
+     console.log("Open Note", this.guitar.strings[ theString ] .getOpenNote());
+     console.log("Current Note", this.guitar.strings[ theString ] .getCurrentNote());
+     console.log("octave", this.guitar.strings[ theString ].getOctave());
      // display some indicator of where the string was selected
      // delete any old indicators
      // this.el.setFret(button.value);
-
  },
  unselectString: function unselectString(ev){
 	// triggers if the user dblclicks on a string. It will set everything to their base values
