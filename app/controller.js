@@ -34,7 +34,7 @@ define(function(){
  	// makes the necessary buttons that users can click on to make chords
  	console.log("addButtons Called");
     var that = this;
-    var i = 0;
+    var i = -1;
  	for(i; i < 13; i += 1){
  	  $("<input type='button' value = '" + i +  "'/>").data('fret', i).data('guitarString', numString).bind("click", function(i) {
           that.selectString(this);

@@ -53,7 +53,13 @@ proto = {
 		if (tempNote == 0){
 			tempNote = 12;
 		}
-		this.currNote = this.lookupNum(tempNote);
+		if (this.fret == -1){
+			// if the fret is -1, the string is not being used
+			this.currNote = null;
+		}else {
+			// otherwise, calculate normally
+			this.currNote = this.lookupNum(tempNote);
+		}
 		return this.currNote;
 	},
 	lookupNote: function lookupNote(note){
