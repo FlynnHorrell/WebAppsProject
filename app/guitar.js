@@ -48,15 +48,14 @@ proto = {
 			}
 		}
 
-		//not the right return
-		console.log("Possible roots", possibleRoots);
-		return possibleRoots;
+		// out of strings with lowest octave use the one at the bottom of the guitar
+		var root = [];
+		root[0] = possibleRoots[possibleRoots.length-1];
 
-
-		
-		// out of strings with lowest octave use allNotes to find lowest note
 		// return as array even though it is one note because calculateChord takes array
-
+		//console.log("Possible roots", possibleRoots);
+		console.log("The root", root[0]);
+		return root;
 	},
 	// This should give all the other notes as possible roots.
 	calculateAltRoots: function calculateAltRoots(){
