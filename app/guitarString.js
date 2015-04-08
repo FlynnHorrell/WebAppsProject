@@ -10,6 +10,7 @@ function makeNewString(note, octave, useSharps){
 	// b is used for flats so "Ab" = A flat
 	gString.openNote = note;
 	gString.openOctave = octave;
+	gString.currOctave = octave;
 	// Keeps track which fret is selected, null is for unused, 0 is open string
 	gString.fret = 0;
 	// Call a proto function to set up frets for the array
@@ -30,7 +31,7 @@ proto = {
 	},
 	getOctave: function getOctave(){
 		// returns the octave of the string object
-		return this.openOctave;
+		return this.currOctave;
 	},
 	getFret: function getFret(){
 		return this.fret;
@@ -39,27 +40,30 @@ proto = {
 	},
 	setFret: function setFret(fret){
 		this.fret = fret;
-		console.log("Inside setFret: Fret = ", this.fret);
+		//console.log("Inside setFret: Fret = ", this.fret);
 		this.calculateNote();
 		return fret;
 	},
 	calculateNote: function calculateNote(){
-		console.log("Inside calculateNote openNote = ", this.openNote);
-		console.log(this.lookupNote(this.openNote));
-		console.log("Inside calculateNote this.fret = ", this.fret);
+		//console.log("Inside calculateNote openNote = ", this.openNote);
+		//console.log(this.lookupNote(this.openNote));
+		//console.log("Inside calculateNote this.fret = ", this.fret);
 		// console.log("Inside calculateNote this.lookupNote(this.openNote)+this.fret = ", this.lookupNote(this.openNote) + this.fret);
 		var tempNote = (this.lookupNote(this.openNote) + this.fret) % 12;
-		console.log("Inside calculateNote tempNote = ", tempNote);
+		//console.log("Inside calculateNote tempNote = ", tempNote);
 		if (tempNote === 0){
 			tempNote = 12;
 		}
 		if (this.fret === -1){
 			// if the fret is -1, the string is not being used
 			this.currNote = null;
+			this.currOctave = null;
 		}else {
 			// otherwise, calculate normally
+			this.currOctave = this.openOctave;
 			this.currNote = this.lookupNum(tempNote);
 		}
+	
 		return this.currNote;
 	},
 	lookupNote: function lookupNote(note){
