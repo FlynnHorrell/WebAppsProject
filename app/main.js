@@ -9,6 +9,7 @@ require.config({
    paths: {
       "lib": "../lib",
       "jquery": "../lib/jquery-1.11.2"
+      // "svg": "../lib/svg"
       // or the following to load remotely:
       // "jquery": "https://code.jquery.com/jquery-2.1.3.min"
    },
