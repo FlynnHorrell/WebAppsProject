@@ -45,7 +45,7 @@ define(function(){
  calcButton: function calcButton(){
     var that = this;
     $("<input type='button' value='calculate chord' />").bind("click", function() {
-            that.guitar.calcChordRoot()}).appendTo(this.el);
+            that.guitar.calculateChord(that.guitar.calcChordRoot())}).appendTo(this.el);
  },
  selectString: function selectString(ev){
 	/* triggers when the user clicks on a string on the page

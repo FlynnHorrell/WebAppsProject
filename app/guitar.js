@@ -63,14 +63,25 @@ proto = {
 	},
 	//Calculates the musical interval between two notes
 	calculateInterval: function calculateInterval(note1, note2){
-
+		return 1;
 	},
 	calculateChord: function calculateChord(roots){
 		// roots is an array of root Notes to base the chord on
 		// calculateInterval between root and allNotes and store in array
+		var intervals = [];
+		var notes = this.allNotes();
+		for(var i = 0;i < roots.length; i += 1){
+			for(var j = 0; j < notes.length; j += 1){
+				if(notes[j] !== null){
+					intervals.push(this.calculateInterval(roots[i],notes[j]));
+				}
+			}
+		}
+		console.log("intervals", intervals);
 		// use the array and lookup combo of its intervals to determine chord
+		// return array of chord names
 		
-	},
+	}
 };
 
 guitar = {
