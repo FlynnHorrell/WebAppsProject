@@ -64,7 +64,7 @@ proto = {
 		console.log("The root", root[0]);
 		return root;
 	},
-	// This should give all the other notes as possible roots.
+	// This should give all the other notes as possible roots. Used for chord inversions
 	calculateAltRoots: function calculateAltRoots(){
 		// call calculateChordRoot and give array of all other notes
 	},
@@ -84,6 +84,15 @@ proto = {
 			}
 		}
 		console.log("intervals", intervals);
+		// Clean up intervals by removing NaN and sorting
+		for(var i = intervals.length-1; i >=0; i -=1){
+			if(Number.isNaN(intervals[i])){
+				intervals.splice(i,1);
+			}
+		}
+		intervals.sort(function(a,b){return a - b})
+		console.log("intervals", intervals);
+
 		// use the array and lookup combo of its intervals to determine chord
 		// return array of chord names
 		
