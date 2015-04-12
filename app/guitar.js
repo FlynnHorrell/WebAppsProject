@@ -107,11 +107,18 @@ proto = {
 
 		//Name is the chord name which will be concatenated to.
 		var name = "" + root[0];
-		name = name.replace(/\d/, "");
+		name = name.replace(/\d/, ""); //eliminate the octave number because that is not part of the name
 		//Check for power chord first
 			if(intervals.length === 1 & intervals[0] === 7){
 				name += " Power Chord";
 			}
+		//Build an alternate interval array containing all intervals in lowest form ex. 17 semitones becomes 5 semitones
+		//Do this by %12
+		var altIntervals = [];
+		for(var i = 0; i < intervals.length; i += 1){
+			altIntervals.push(intervals[i]%12);
+		}
+		console.log("altIntervals", altIntervals);
 		//Check for triads to start building a chord
 		//only two spots in array since root notes are left out
 		/*
