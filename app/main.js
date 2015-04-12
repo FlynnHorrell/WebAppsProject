@@ -25,12 +25,12 @@ function($, guitarString, controller, guitar) {
    console.log("guitarString", guitarString);
    console.log("controller", controller);
    console.log("guitar", guitar);
-   var string1 = guitarString.new("E", 6);
-   var string2 = guitarString.new("B", 5);
-   var string3 = guitarString.new("G", 5);
-   var string4 = guitarString.new("D", 5);
-   var string5 = guitarString.new("A", 4);
-   var string6 = guitarString.new("E", 4);
+   var string1 = guitarString.new("E", 4);
+   var string2 = guitarString.new("B", 3);
+   var string3 = guitarString.new("G", 3);
+   var string4 = guitarString.new("D", 3);
+   var string5 = guitarString.new("A", 2);
+   var string6 = guitarString.new("E", 2);
    console.log(string1);
    $(function() {
    "use strict";

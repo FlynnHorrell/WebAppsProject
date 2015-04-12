@@ -60,7 +60,7 @@ proto = {
 			this.currOctave = null;
 		}else {
 			// otherwise, calculate normally
-			this.currOctave = this.openOctave;
+			this.currOctave = this.openOctave + Math.floor(this.fret/12);
 			this.currNote = this.lookupNum(tempNote);
 		}
 	

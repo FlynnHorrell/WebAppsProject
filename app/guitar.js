@@ -44,7 +44,7 @@ proto = {
 		var possibleRoots = [];
 		for(var i = 0; i < octaves.length; i+=1){
 			if(octaves[i] == min){
-				possibleRoots[possibleRoots.length] = notes[i];
+				possibleRoots[possibleRoots.length] = notes[i] + octaves[i];
 			}
 		}
 
@@ -63,7 +63,7 @@ proto = {
 	},
 	//Calculates the musical interval between two notes
 	calculateInterval: function calculateInterval(note1, note2){
-		return 1;
+		return note1 + ": " + note2;
 	},
 	calculateChord: function calculateChord(roots){
 		// roots is an array of root Notes to base the chord on
@@ -72,9 +72,7 @@ proto = {
 		var notes = this.allNotes();
 		for(var i = 0;i < roots.length; i += 1){
 			for(var j = 0; j < notes.length; j += 1){
-				if(notes[j] !== null){
-					intervals.push(this.calculateInterval(roots[i],notes[j]));
-				}
+					intervals.push(this.calculateInterval(roots[i],notes[j] + this.strings[j].getOctave()));
 			}
 		}
 		console.log("intervals", intervals);
