@@ -60,7 +60,13 @@ proto = {
 			this.currOctave = null;
 		}else {
 			// otherwise, calculate normally
-			this.currOctave = this.openOctave + Math.floor(this.fret/12);
+			var j = this.lookupNote(this.openNote)+ this.fret;
+			var count = 0;
+			while(j > 12){
+				count += 1;
+				j = j-12;
+			}
+			this.currOctave = this.openOctave+count;
 			this.currNote = this.lookupNum(tempNote);
 		}
 	
@@ -68,54 +74,54 @@ proto = {
 	},
 	lookupNote: function lookupNote(note){
 		var noteToNum = {
-		A: 1,
-		AS: 2,
-		Bb: 2,
-		B: 3,
-		C: 4,
-		CS: 5,
-		Db: 5,
-		D: 6,
-		DS: 7,
-		Eb: 7,
-		E: 8,
-		F: 9,
-		FS: 10,
-		Gb: 10,
-		G: 11,
-		GS: 12,
-		Ab: 12
+		C: 1,
+		CS: 2,
+		Db: 2,
+		D: 3,
+		DS: 4,
+		Eb: 4,
+		E: 5,
+		F: 6,
+		FS: 7,
+		Gb: 7,
+		G: 8,
+		GS: 9,
+		Ab: 9,
+		A: 10,
+		AS: 11,
+		Bb: 11,
+		B: 12
 	    };
 		return noteToNum[ note ];
 	},
 	lookupNum: function lookupNum(num){
 		var numToNoteSharp = {
-		1: "A",
-		2: "AS",
-		3: "B",
-		4: "C",
-		5: "CS",
-		6: "D",
-		7: "DS",
-		8: "E",
-		9: "F",
-		10: "FS",
-		11: "G",
-		12: "GS"
+		1: "C",
+		2: "CS",
+		3: "D",
+		4: "DS",
+		5: "E",
+		6: "F",
+		7: "FS",
+		8: "G",
+		9: "GS",
+		10: "A",
+		11: "A#",
+		12: "B"
 		};
 		var numToNoteFlat = {
-		1: "A",
-		2: "Bb",
-		3: "B",
-		4: "C",
-		5: "Db",
-		6: "D",
-		7: "Eb",
-		8: "E",
-		9: "F",
-		10: "Gb",
-		11: "G",
-		12: "Ab"
+		1: "C",
+		2: "Db",
+		3: "D",
+		4: "Eb",
+		5: "E",
+		6: "F",
+		7: "Gb",
+		8: "G",
+		9: "Ab",
+		10: "A",
+		11: "Bb",
+		12: "B"
 		};
 		if (this.useSharps){
 			return numToNoteSharp[ num ];
