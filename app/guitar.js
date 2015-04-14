@@ -119,6 +119,15 @@ proto = {
 			altIntervals.push(intervals[i]%12);
 		}
 		console.log("altIntervals", altIntervals);
+		
+		//Checking triads to start building chord
+		//
+		if( (intervals.indexOf(4) !== -1||altIntervals.indexOf(4) !== -1)  && (intervals.indexOf(7) !== -1||altIntervals.indexOf(7) !== -1)){
+			name += " Major";
+		}
+		if( (intervals.indexOf(3) !== -1||altIntervals.indexOf(3) !== -1)  && (intervals.indexOf(7) !== -1||altIntervals.indexOf(7) !== -1)){
+			name += " Minor";
+		}
 		//Check for triads to start building a chord
 		//only two spots in array since root notes are left out
 		/*

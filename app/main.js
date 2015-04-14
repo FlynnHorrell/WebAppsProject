@@ -17,14 +17,15 @@ require.config({
 });
 
 // All other modules should be called through here
-require([ "jquery", "guitarString", "controller", "guitar" ],
-function($, guitarString, controller, guitar) {
+require([ "jquery", "guitarString", "controller", "guitar","svg"],
+function($, guitarString, controller, guitar,svg) {
    $(function() {
       console.log("Page loaded!");
    });
    console.log("guitarString", guitarString);
    console.log("controller", controller);
    console.log("guitar", guitar);
+   console.log("svg",svg);
    var string1 = guitarString.new("E", 4);
    var string2 = guitarString.new("B", 3);
    var string3 = guitarString.new("G", 3);
