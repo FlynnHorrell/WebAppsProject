@@ -9,7 +9,8 @@ require.config({
    paths: {
       "lib": "../lib",
       "jquery": "../lib/jquery-1.11.2",
-       "svg": "../lib/svg"
+       "svg": "../lib/svg",
+       "drawing": "../drawing"
       // or the following to load remotely:
       // "jquery": "https://code.jquery.com/jquery-2.1.3.min"
    },
@@ -17,7 +18,7 @@ require.config({
 });
 
 // All other modules should be called through here
-require([ "jquery", "guitarString", "controller", "guitar","svg"],
+require([ "jquery", "guitarString", "controller", "guitar","svg","drawing"],
 function($, guitarString, controller, guitar,svg) {
    $(function() {
       console.log("Page loaded!");
