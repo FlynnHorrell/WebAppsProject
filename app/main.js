@@ -27,6 +27,7 @@ function($, guitarString, controller, guitar,svg) {
    console.log("controller", controller);
    console.log("guitar", guitar);
    console.log("svg",svg);
+   console.log("drawing", drawing);
    var string1 = guitarString.new("E", 4);
    var string2 = guitarString.new("B", 3);
    var string3 = guitarString.new("G", 3);
