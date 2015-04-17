@@ -105,12 +105,12 @@ define(function(){
 	draw.line(454, 0, 454, 104).stroke({ color: '#e0e0e0', width: 3 }),
 	draw.line(494, 0, 494, 104).stroke({ color: '#e0e0e0', width: 3 })
 	]
-
+    return {strings: theStrings, frets: theFrets};
 }
-	var o = {
+/*	var o = {
 		a: theStrings,
 		b: theFrets,
 		c: makeDrawing
-	};
-    return o;
+	};*/
+    return makeDrawing;
 });

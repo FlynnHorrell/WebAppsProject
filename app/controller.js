@@ -51,6 +51,7 @@ define(function(){
  selectString: function selectString(ev){
 	/* triggers when the user clicks on a string on the page
 	   changes the values of fret, currNote, and openOctave */
+     console.log("selectString called");
      var theFret = $(ev).data("fret");
      var theString = $(ev).data("guitarString");
      $(ev).addClass("Selected");

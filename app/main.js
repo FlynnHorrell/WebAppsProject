@@ -26,10 +26,6 @@ function($, guitarString, controller, guitar, svg, drawing) {
    console.log("controller", controller);
    console.log("guitar", guitar);
    console.log("svg",svg);
-   console.log("drawing", drawing);
-   console.log(drawing.a);
-   console.log(drawing.b);
-   console.log(drawing.c);
    var string1 = guitarString.new("E", 4);
    var string2 = guitarString.new("B", 3);
    var string3 = guitarString.new("G", 3);
@@ -40,9 +36,23 @@ function($, guitarString, controller, guitar, svg, drawing) {
    $(function() {
    "use strict";
    // Create the specific controller object initialized to work with our page
-   drawing.a;
-   drawing.b;
-   drawing.c;
+   var theFretboard = drawing();
+   console.log(theFretboard);
+   for (var i = 0; i < 71; i ++){
+      if (i < 12){
+          theFretboard.strings[i].data('string', string1);
+       } else if (12 < i < 24){
+         theFretboard.strings[i].data('string', string2);
+       } else if (24 < i < 36){
+         theFretboard.strings[i].data('string', string3);
+       } else if (36 < i < 48){
+         theFretboard.strings[i].data('string', string4);
+       } else if (48 < i < 60){
+         theFretboard.strings[i].data('string', string5);
+       } else {
+         theFretboard.strings[i].data('string', string6);
+       }
+   }
    var guitar1 = guitar.new([ string1, string2, string3, string4, string5, string6 ], true);
    var cont1 = controller.new($("ul"), guitar1);
    console.log(cont1);
