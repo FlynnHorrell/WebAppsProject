@@ -10,7 +10,6 @@ require.config({
       "lib": "../lib",
       "jquery": "../lib/jquery-1.11.2",
        "svg": "../lib/svg",
-       "drawing": "../drawing"
       // or the following to load remotely:
       // "jquery": "https://code.jquery.com/jquery-2.1.3.min"
    },
@@ -18,8 +17,8 @@ require.config({
 });
 
 // All other modules should be called through here
-require([ "jquery", "guitarString", "controller", "guitar","svg","drawing"],
-function($, guitarString, controller, guitar,svg) {
+require([ "jquery", "guitarString", "controller", "guitar","svg","../drawing"],
+function($, guitarString, controller, guitar, svg, drawing) {
    $(function() {
       console.log("Page loaded!");
    });
@@ -38,6 +37,7 @@ function($, guitarString, controller, guitar,svg) {
    $(function() {
    "use strict";
    // Create the specific controller object initialized to work with our page
+   drawing();
    var guitar1 = guitar.new([ string1, string2, string3, string4, string5, string6 ], true);
    var cont1 = controller.new($("ul"), guitar1);
    console.log(cont1);
