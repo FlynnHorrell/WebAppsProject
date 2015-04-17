@@ -37,7 +37,7 @@ function($, guitarString, controller, guitar, svg, drawing) {
    $(function() {
    "use strict";
    // Create the specific controller object initialized to work with our page
-   drawing();
+   drawing.o;
    var guitar1 = guitar.new([ string1, string2, string3, string4, string5, string6 ], true);
    var cont1 = controller.new($("ul"), guitar1);
    console.log(cont1);

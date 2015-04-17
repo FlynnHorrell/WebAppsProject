@@ -25,14 +25,12 @@ define(function(){
         cont.addButtons(i);
     }
     cont.calcButton();
-    cont.bindEvents();
     return cont;
  }
  proto = {
 
  addButtons: function addButtons(numString){
      // makes the necessary buttons that users can click on to make chords
-    console.log("addButtons Called");
     var that = this;
     var i = -1;
     for (i; i < 13; i += 1){
@@ -46,7 +44,6 @@ define(function(){
     var that = this;
     var chordsGoHere = $("<input type='text'/>").appendTo(this.el);
     $("<input type='button' value='calculate chord' />").bind("click", function() {
-            console.log(that.guitar.calculateChord())
             chordsGoHere.attr("value",that.guitar.calculateChord());
         }).appendTo(this.el);
 
@@ -54,33 +51,15 @@ define(function(){
  selectString: function selectString(ev){
 	/* triggers when the user clicks on a string on the page
 	   changes the values of fret, currNote, and openOctave */
-     //console.log("selectString called");
-     /*console.log(ev);
-     console.log($(ev).attr("class"));*/
-/*     var theFret = $(ev).attr("class").match(/\d+/)[0];
-     theFret = parseInt(theFret);*/
      var theFret = $(ev).data("fret");
      var theString = $(ev).data("guitarString");
-    
      $(ev).addClass("Selected");
-    // console.log("Fret", theFret);
-    // console.log("StringNumber", theString);
-    // console.log(this.guitar.allNotes());
      this.guitar.strings[ theString ].setFret(theFret);
-    // console.log("Open Note", this.guitar.strings[ theString ] .getOpenNote());
-     console.log("Current Note", this.guitar.strings[ theString ] .getCurrentNote());
-     console.log("octave", this.guitar.strings[ theString ].getOctave());
      // display some indicator of where the string was selected
      // delete any old indicators
      // this.el.setFret(button.value);
- },
- unselectString: function unselectString(ev){
-	// triggers if the user dblclicks on a string. It will set everything to their base values
-    console.log("unselectString called");
- },
- bindEvents: function bindEvents() {
-  this.el.on("dblclick", this.unselectString);
  }
+
 };
  /*return {
  	el: element,
