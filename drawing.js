@@ -3,8 +3,6 @@ define(function(){
 	var theFrets = [];
 	function makeDrawing(){
 	// Uses svg.js to draw the fretboard ans strings
-	var theStrings = []; // an array to hold the strings
-	var theFrets = [];
 	var draw = SVG("drawing").size(533, 104);
 	var rect = draw.rect(533, 104).fill({ color: '#000000' });
 	// draw the strings
@@ -92,7 +90,7 @@ define(function(){
 	draw.line(0, 62, 533, 62).stroke({ color: '#a0a0a0', width: 2 }),
 	draw.line(0, 82, 533, 82).stroke({ color: '#a0a0a0', width: 2 }),
 	draw.line(0, 100, 533, 100).stroke({ color: '#c0c0c0', width: 2 })
-	];
+	]
     
     theFrets = [
 	draw.line(50, 0, 50, 104).stroke({ color: '#e0e0e0', width: 3 }),
@@ -106,13 +104,13 @@ define(function(){
 	draw.line(413, 0, 413, 104).stroke({ color: '#e0e0e0', width: 3 }),
 	draw.line(454, 0, 454, 104).stroke({ color: '#e0e0e0', width: 3 }),
 	draw.line(494, 0, 494, 104).stroke({ color: '#e0e0e0', width: 3 })
-	];
+	]
 
 }
-	var o = Object.create(null, {
+	var o = {
 		a: theStrings,
 		b: theFrets,
 		c: makeDrawing
-	});
+	};
     return o;
 });
