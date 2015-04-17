@@ -74,11 +74,11 @@ proto = {
 		console.log(note1 + ": " + note2)
 		return this.noteList[note2] - this.noteList[note1];
 	},
-	calculateChord: function calculateChord(root){
+	calculateChord: function calculateChord(){
 		// roots is an array of root Notes to base the chord on
 		// calculateInterval between root and allNotes and store in array
 		var intervals = [];
-		var root = root;
+		var root = this.calcChordRoot();
 		var notes = this.allNotes();
 		//for(var i = 0;i < roots.length; i += 1){
 			for(var j = 0; j < notes.length; j += 1){
@@ -121,23 +121,30 @@ proto = {
 		console.log("altIntervals", altIntervals);
 		
 		//Checking triads to start building chord
-		//
+		
+		//Major triad
 		if( (intervals.indexOf(4) !== -1||altIntervals.indexOf(4) !== -1)  && (intervals.indexOf(7) !== -1||altIntervals.indexOf(7) !== -1)){
 			name += " Major";
+			//Check for 7th
+			if(intervals.indexOf(10) !== -1 || altIntervals.indexOf(10) !== -1){
+				name = name.replace(/ Major/, "7");
+			}
+			//Check for Major 7th
+			if(intervals.indexOf(11) !== -1 || altIntervals.indexOf(11) !== -1){
+				name += "7";
+			}
 		}
+		//Minor triad
 		if( (intervals.indexOf(3) !== -1||altIntervals.indexOf(3) !== -1)  && (intervals.indexOf(7) !== -1||altIntervals.indexOf(7) !== -1)){
 			name += " Minor";
-		}
-		//Check for triads to start building a chord
-		//only two spots in array since root notes are left out
-		/*
-		var triad = intervals.slice(0,2);
-		console.log("triad", triad);
-			switch(triad){
-				case [4,7]: name += " Major";break;
-				case [3,7]: name += " Minor";break;
+			//Check for Minor 7th
+			if(intervals.indexOf(10) !== -1 || altIntervals.indexOf(10) !== -1){
+				name += "7";
 			}
-		*/
+		}
+
+
+
 		//If no suitable names were found then name was unchanged 
 		if(name === root[0].replace(/\d/,"")){
 			return "?";

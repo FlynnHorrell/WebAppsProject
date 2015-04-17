@@ -44,8 +44,12 @@ define(function(){
  },
  calcButton: function calcButton(){
     var that = this;
+    var chordsGoHere = $("<input type='text'/>").appendTo(this.el);
     $("<input type='button' value='calculate chord' />").bind("click", function() {
-            console.log("chord name", that.guitar.calculateChord(that.guitar.calcChordRoot()))}).appendTo(this.el);
+            console.log(that.guitar.calculateChord())
+            chordsGoHere.attr("value",that.guitar.calculateChord());
+        }).appendTo(this.el);
+
  },
  selectString: function selectString(ev){
 	/* triggers when the user clicks on a string on the page
@@ -57,6 +61,8 @@ define(function(){
      theFret = parseInt(theFret);*/
      var theFret = $(ev).data("fret");
      var theString = $(ev).data("guitarString");
+    
+     $(ev).addClass("Selected");
     // console.log("Fret", theFret);
     // console.log("StringNumber", theString);
     // console.log(this.guitar.allNotes());
