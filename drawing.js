@@ -4,6 +4,9 @@ define(function(){
 	function makeDrawing(){
 	// Uses svg.js to draw the fretboard ans strings
 	var draw = SVG("drawing").size(533, 104);
+	draw.click(function(){
+		selectString(theStrings.dataset.string);
+	});
 	var rect = draw.rect(533, 104).fill({ color: '#000000' });
 	// draw the strings
 	theStrings = [

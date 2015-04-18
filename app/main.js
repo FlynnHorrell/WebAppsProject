@@ -54,7 +54,7 @@ function($, guitarString, controller, guitar, svg, drawing) {
        }
    }
    var guitar1 = guitar.new([ string1, string2, string3, string4, string5, string6 ], true);
-   var cont1 = controller.new($("ul"), guitar1);
+   var cont1 = controller.new($("ul"), guitar1);\
    console.log(cont1);
    console.log(cont1.el);
    });
